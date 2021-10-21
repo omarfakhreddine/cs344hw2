@@ -188,13 +188,13 @@ void highestRated(struct movie* list)
 */
 void selectFile()
 {
-    static int selection;
+    int selection = 0;
     char* selection1 = "\nEnter 1 to pick the largest file";
     char* selection2 = "Enter 2 to pick the smallest file";
     char* selection3 = "Enter 3 to specify the name of a file";
     char* selectionError = "You entered an incorrect selection, try again by selecting 1, 2, or 3";
 
-    while (selection != 1 && selection != 2 && selection != 3) {
+    while (selection == 0) {
         printf("%s\n%s\n%s\n\n", selection1, selection2, selection3);
         printf("Which kind of file do you want to process?");
         scanf("%d", &selection);
@@ -210,8 +210,9 @@ void selectFile()
             printf("3");
             break;
         default:
-            // Invalid option entered, retry option entry
+            // Invalid selection entered, retry selection entry
             printf("%s\n\n", selectionError);
+            selection = 0;
             break;
         }
     }
@@ -223,7 +224,7 @@ void selectFile()
 *       gcc --std=gnu99 -o movies_by_year main.c
 */
 
-int main(int argc, char* argv[])
+int main()
 {
     //static int quantity = 0;
     static int choice = 0;
