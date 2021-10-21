@@ -196,7 +196,7 @@ void selectFile()
 
     while (selection != 1 && selection != 2 && selection != 3) {
         printf("%s\n%s\n%s\n\n", selection1, selection2, selection3);
-        printf("Which kind of file do you want to process?\n");
+        printf("Which kind of file do you want to process?");
         scanf("%d", &selection);
 
         switch (selection) {
@@ -214,7 +214,6 @@ void selectFile()
             printf("%s\n\n", selectionError);
             break;
         }
-
     }
 }
 
